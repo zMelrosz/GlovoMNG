@@ -1,87 +1,174 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <base target="_top" />
+  </head>
+  <header class="header">
+    <h1 class="header__text">Glovo MNG web app</h1>
+  </header>
 
-<head>
-  <base target="_top" />
-</head>
-<header class="header">
-  <h1 class="header__text">Glovo MNG web app</h1>
-</header>
-
-<body>
-  <section class="main">
-    <div class="info">
-      <p class="info__text">Сегодняшняя дата:</p>
-      <p class="info__value info__value_date">01.01.1970</p>
-    </div>
-    <div class="info">
-      <p class="info__text">Сегодняшний ресторан:</p>
-      <p class="info__value info__value_rest">Ресторан</p>
-    </div>
-  </section>
-  <form class="form">
-    <h2 class="form__header">Пожалуйста, выберите ваше имя</h2>
-    <input class="form__choice" type="radio" name="name" id="name1" value="name1" required />
-    <label class="form__label" for="name1">name1</label>
-    <h2 class="form__header">Оцените заказ</h2>
-    <div class="form__rate">
-      <div class="form__choice_entity">
-        <input class="form__choice" type="radio" name="rate" id="rate1" value="1" required />
-        <label class="form__label" for="rate1">1</label>
+  <body>
+    <section class="main">
+      <div class="info">
+        <p class="info__text">Сегодняшняя дата:</p>
+        <p class="info__value info__value_date">01.01.1970</p>
       </div>
-
+      <div class="info">
+        <p class="info__text">Сегодняшний ресторан:</p>
+        <p class="info__value info__value_rest">Ресторан</p>
+      </div>
+    </section>
+    <form class="form">
+      <h2 class="form__who">Кто вы?</h2>
+      <select class="form__select" name="user"></select> <!--------------------- CHOOSE USER -------------------->
+      <h2 class="form__header">Оцените заказ</h2>
       <div class="form__rate">
         <div class="form__choice_entity">
-          <input class="form__choice" type="radio" name="rate" id="rate2" value="2" required />
-          <label class="form__label" for="rate2">2</label>
+          <input
+            class="form__choice"
+            type="radio"
+            name="rate"
+            id="rate1"
+            value="1"
+            required
+          />
+          <label class="form__label" for="rate1">1</label>
         </div>
-        <div class="form__choice_entity">
-          <input class="form__choice" type="radio" name="rate" id="rate3" value="3" required />
-          <label class="form__label" for="rate3">3</label>
-        </div>
-        <div class="form__choice_entity">
-          <input class="form__choice" type="radio" name="rate" id="rate4" value="4" required />
-          <label class="form__label" for="rate4">4</label>
-        </div>
-        <div class="form__choice_entity">
-          <input class="form__choice" type="radio" name="rate" id="rate5" value="5" required />
-          <label class="form__label" for="rate5">5</label>
+
+        <div class="form__rate">
+          <div class="form__choice_entity">
+            <input
+              class="form__choice"
+              type="radio"
+              name="rate"
+              id="rate2"
+              value="2"
+              required
+            />
+            <label class="form__label" for="rate2">2</label>
+          </div>
+          <div class="form__choice_entity">
+            <input
+              class="form__choice"
+              type="radio"
+              name="rate"
+              id="rate3"
+              value="3"
+              required
+            />
+            <label class="form__label" for="rate3">3</label>
+          </div>
+          <div class="form__choice_entity">
+            <input
+              class="form__choice"
+              type="radio"
+              name="rate"
+              id="rate4"
+              value="4"
+              required
+            />
+            <label class="form__label" for="rate4">4</label>
+          </div>
+          <div class="form__choice_entity">
+            <input
+              class="form__choice"
+              type="radio"
+              name="rate"
+              id="rate5"
+              value="5"
+              required
+            />
+            <label class="form__label" for="rate5">5</label>
+          </div>
         </div>
       </div>
-    </div>
-    <button class="form__button" type="submit">Отправить</button>
-  </form>
-</body>
-<script>// --------------------------- Here is an iconic async function
-    const submitBut = document.querySelector('.form__button');
-    
-    function onSuccess(message) {
-      console.log(message);
+      <button class="form__button" type="submit">Отправить</button>
+    </form>
+  </body>
+  <script>// ------------------------------------------------------------Here is an aysnc vote function-------------------------------------------------------------------------------
+    const formElement = document.querySelector('.form');
+
+    function getRatingFormDate() {
+      const ratingForm = document.querySelector('.form');
+      console.log(ratingForm);
+      const formData = new FormData(ratingForm);
+      console.log(formData);
+
+      const submitData = {
+        user: formData.get('user'),
+        rating: formData.get('rate'),
+        date: document.querySelector('.info__value_date').textContent,
+        restaurant: document.querySelector('.info__value_rest').textContent,
+      };
+      console.log(submitData);
+      return submitData;
     }
 
-    submitBut.addEventListener('click', function (evt) {
+    function onFailureRate(error) {
+      alert(error);
+    }
+
+    function onSuccessRate() {
+      alert('You have voted succesfully!');
+    }
+
+    formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
-      google.script.run.withSuccessHandler(onSuccess) //eslint-disable-line
-        .checkLog();
+      const formDataEnt = getRatingFormDate();
+      // eslint-disable-next-line no-undef
+      google.script.run.withFailureHandler(onFailureRate).processRatingForm(formDataEnt);
+      // eslint-disable-next-line no-undef
+      google.script.run.withSuccessHandler(onSuccessRate).processRatingForm(formDataEnt);
     });
   </script>
-  <script>// ------------------------ Here is an aysnc getDate communication
-  const dateVar = document.querySelector('.info__value_date');
+  <script>// ------------------------------------------------------------ Here is an aysnc getDate communication--------------------------------------------------------------------------
+    
+    const dateVar = document.querySelector('.info__value_date');
 
-  function putDate(date) {
-    dateVar.textContent = date;
-  }
-  google.script.run.withSuccessHandler(putDate).getDate(); //eslint-disable-line
+    function putDate(date) {
+      dateVar.textContent = date;
+    }
+    google.script.run.withSuccessHandler(putDate).getDate(); //eslint-disable-line
   </script>
-  <script>// ------------------------ Here is an async getRest communication
-  const restVar = document.querySelector('.info__value_rest');
+  <script>// ------------------------------------------------------------ Here is an aysnc getRest communication--------------------------------------------------------------------------
+    
+    const restVar = document.querySelector('.info__value_rest');
 
-  function putRest(rest) {
-    restVar.textContent = rest;
-  }
-  google.script.run.withSuccessHandler(putRest).getLastRestaurant(); //eslint-disable-line
+    function putRest(rest) {
+      restVar.textContent = rest;
+    }
+    google.script.run.withSuccessHandler(putRest).getLastRestaurant(); //eslint-disable-line
   </script>
 </html>
+
+<template id="user">
+  <option class="form__user"></option>
+</template>
+
+<script>// ------------------------------------------------------------Here is an option HTML build function--------------------------------------------------------------------------
+  const employees = [
+    'Алексей Холодов',
+    'Анатолий Макаров',
+    'Данила Шелестов',
+    'Оскар Горин',
+    'Станислав Бородин',
+    'Виктор Громов',
+    'Александра Шаламова',
+    'Анна Ступина',
+    'Илья Усачев',
+    'Андрей Морозов',
+    'Игорь Хоменко',
+  ];
+
+  const userTemplate = document.querySelector('#user').content;
+  const usersOptions = document.querySelector('.form__select');
+
+  for (let i = 0; i < employees.length; i++) {
+    const userElement = userTemplate.querySelector('.form__user').cloneNode(true);
+    userElement.textContent = employees[i];
+    usersOptions.append(userElement);
+  }
+</script>
 
 <style>
   body {
@@ -132,18 +219,35 @@
     background-color: antiquewhite;
     max-width: 500px;
     height: 500px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form__who {
+    margin: 0 auto;
+    margin-top: 15px;
+  }
+
+  .form__user {
+    text-align: center;
+  }
+
+  .form__select {
+    min-height: 10px;
+    margin-top: 10px;
+    justify-self: center;
   }
 
   .form__header {
     margin: 0;
-    padding-top: 5px;
+    padding-top: 30px;
     font-size: 20px;
     text-align: center;
   }
 
   .form__choice {
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
   .form__rate {
@@ -160,4 +264,9 @@
     height: 100px;
     font-weight: 600;
   }
+
+  .form__button:hover {
+    opacity: 75%;
+  } 
 </style>
+

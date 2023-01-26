@@ -1,5 +1,4 @@
 // ---------------------------------------------------------google functions--------------------------------------------------------------
-
 function doGet() {
   return HtmlService.createHtmlOutputFromFile('indexHTML');
 }
@@ -22,65 +21,14 @@ const dateFormat = 'dd.MM.yyyy';
 
 const restaurantsSheet = getSheet('Рестораны');
 const monitorSheet = getSheet('Монитор');
+const ratingSheet = getSheet('CustomVoteAnswers');
 // ----------------------------------------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------async functions---------------------------------------------------------------
-function checkLog() {
-  const result = 'im result';
-  return result;
-}
 
 function getDate() {
   const sheetDate = new Date();
   const sheetFormattedDate = Utilities.formatDate(sheetDate, timeZone, dateFormat);
   return sheetFormattedDate;
-}
-// ---------------------------------------------------------------------------------------------------------------------------------------
-
-function convertDateToTrial(date) {
-  return new Date(date.getTime() - 1000 * 60 * date.getTimezoneOffset()).getTime() / 1000 / 86400 + 25569; // Reference: https://stackoverflow.com/a/6154953
-}
-
-function getSheet(name) {
-  const spreadSheet = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = spreadSheet.getSheetByName(name);
-
-  return sheet;
-}
-
-function searchColumn(sheet, row, serachingValue) {
-  const column = sheet.getLastColumn();
-  let lenght = column;
-  const noResult = false;
-
-  while (lenght >= 1) {
-    if (sheet.getRange(row, lenght).getValue() === serachingValue) {
-      const newCoords = {
-        row,
-        lenght,
-      };
-      return newCoords;
-    }
-    lenght--;
-  }
-  return noResult;
-}
-
-function searchRow(sheet, column, searchingValue) {
-  const row = sheet.getLastRow();
-  let lenght = row;
-  const noResult = false;
-
-  while (lenght >= 1) {
-    if (sheet.getRange(lenght, column).getValue() === searchingValue) {
-      const newCoords = {
-        row: lenght,
-        column,
-      };
-      return newCoords;
-    }
-    lenght--;
-  }
-  return noResult;
 }
 
 function getLastRestaurant() {
@@ -108,4 +56,74 @@ function getLastRestaurant() {
   }
   Logger.log('No rest found');
   return false;
+}
+
+function checkVotedUsers(user) {
+  const textFinder = ratingSheet.createTextFinder(getDate());
+  const allDates = textFinder.findAll();
+  if (allDates.length < 1) {
+    return true;
+  }
+  const namesColumn = allDates[0].getColumn() + 1;
+  const votedUsers = [];
+
+  for (let i = 0; i < allDates.length; i++) {
+    votedUsers.push(ratingSheet.getRange(allDates[i].getRow(), namesColumn).getValue());
+  }
+
+  for (let i = 0; i < votedUsers.length; i++) {
+    if (user !== votedUsers[i]) {
+      // eslint-disable-next-line no-continue
+      continue;
+    } else return false;
+  }
+  return true;
+}
+
+function processRatingForm(submitData) {
+  const emptyRow = getFirstEmptyRow(ratingSheet);
+  if (checkVotedUsers(submitData.user)) {
+    // Can I put new data to sheet?
+    ratingSheet.getRange(emptyRow, 1).setValue(submitData.date);
+    ratingSheet.getRange(emptyRow, 2).setValue(submitData.user);
+    ratingSheet.getRange(emptyRow, 3).setValue(submitData.rating);
+    ratingSheet.getRange(emptyRow, 4).setValue(submitData.restaurant);
+  } else throw new Error('You already voted, dont do cheating!');
+}
+// ----------------------------------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------Utils functions----------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------
+
+function getSheet(name) {
+  const spreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = spreadSheet.getSheetByName(name);
+
+  return sheet;
+}
+
+function searchRow(sheet, column, searchingValue) {
+  const row = sheet.getLastRow();
+  let lenght = row;
+  const noResult = false;
+
+  while (lenght >= 1) {
+    if (sheet.getRange(lenght, column).getValue() === searchingValue) {
+      const newCoords = {
+        row: lenght,
+        column,
+      };
+      return newCoords;
+    }
+    lenght--;
+  }
+  return noResult;
+}
+
+function getFirstEmptyRow(sheet) {
+  const cell = sheet.getRange('a1');
+  let ct = 0;
+  while (cell.offset(ct, 0).getValue() !== '') {
+    ct++;
+  }
+  return ct + 1;
 }
