@@ -11,11 +11,11 @@
     <section class="main">
       <div class="info">
         <p class="info__text">Сегодняшняя дата:</p>
-        <p class="info__value info__value_date">01.01.1970</p>
+        <p class="info__value info__value_date">Loading...</p>
       </div>
       <div class="info">
         <p class="info__text">Сегодняшний ресторан:</p>
-        <p class="info__value info__value_rest">Ресторан</p>
+        <p class="info__value info__value_rest">Loading...</p>
       </div>
     </section>
     <form class="form">
@@ -90,9 +90,7 @@
 
     function getRatingFormDate() {
       const ratingForm = document.querySelector('.form');
-      console.log(ratingForm);
       const formData = new FormData(ratingForm);
-      console.log(formData);
 
       const submitData = {
         user: formData.get('user'),
@@ -100,7 +98,6 @@
         date: document.querySelector('.info__value_date').textContent,
         restaurant: document.querySelector('.info__value_rest').textContent,
       };
-      console.log(submitData);
       return submitData;
     }
 
@@ -113,16 +110,21 @@
     }
 
     formElement.addEventListener('submit', function (evt) {
-      evt.preventDefault();
-      const formDataEnt = getRatingFormDate();
-      // eslint-disable-next-line no-undef
-      google.script.run.withFailureHandler(onFailureRate).processRatingForm(formDataEnt);
-      // eslint-disable-next-line no-undef
-      google.script.run.withSuccessHandler(onSuccessRate).processRatingForm(formDataEnt);
-    });
+  evt.preventDefault();
+  const formDataEnt = getRatingFormDate();
+  console.log(`date is ${formDataEnt.date} and user is ${formDataEnt.user}`);
+  if (formDataEnt.restaurant === 'Loading...') {
+        // Valid data
+        alert('Try again');
+        return;
+  }
+  // eslint-disable-next-line no-undef
+  google.script.run.withFailureHandler(onFailureRate).processRatingForm(formDataEnt);
+  // eslint-disable-next-line no-undef
+  google.script.run.withSuccessHandler(onSuccessRate).processRatingForm(formDataEnt);
+});
   </script>
-  <script>// ------------------------------------------------------------ Here is an aysnc getDate communication--------------------------------------------------------------------------
-    
+  <script>// ------------------------------------------------------------ Here is an aysnc getDate communication--------------------------------------------------
     const dateVar = document.querySelector('.info__value_date');
 
     function putDate(date) {
@@ -130,7 +132,7 @@
     }
     google.script.run.withSuccessHandler(putDate).getDate(); //eslint-disable-line
   </script>
-  <script>// ------------------------------------------------------------ Here is an aysnc getRest communication--------------------------------------------------------------------------
+  <script>// ------------------------------------------------------------ Here is an aysnc getRest communication---------------------------------------------------
     
     const restVar = document.querySelector('.info__value_rest');
 
@@ -145,7 +147,7 @@
   <option class="form__user"></option>
 </template>
 
-<script>// ------------------------------------------------------------Here is an option HTML build function--------------------------------------------------------------------------
+<script>// ------------------------------------------------------------Here is an option HTML build function-------------------------------------------------------
   const employees = [
     'Алексей Холодов',
     'Анатолий Макаров',
@@ -168,8 +170,7 @@
     userElement.textContent = employees[i];
     usersOptions.append(userElement);
   }
-</script>
-
+</script><!----------------------------------------------------------------------------------------------------------------------------------------------------------->
 <style>
   body {
     font-family: "Roboto", "Arial", "Helvetica", sans-serif;

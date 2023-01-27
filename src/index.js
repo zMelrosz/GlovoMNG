@@ -127,3 +127,9 @@ function getFirstEmptyRow(sheet) {
   }
   return ct + 1;
 }
+
+function sortRows() {
+  const range = restaurantsSheet.getRange('2:25');
+  const sortOrder = { column: 2, ascending: false };
+  range.sort(sortOrder);
+}
