@@ -1,3 +1,4 @@
+/* eslint-disable guard-for-in */
 // ---------------------------------------------------------google functions--------------------------------------------------------------
 function doGet() {
   return HtmlService.createHtmlOutputFromFile('indexHTML');
@@ -13,15 +14,23 @@ function openDialog() {
   SpreadsheetApp.getUi().showModalDialog(html, 'Оценить заказ');
 }
 
+function launchWebApp() {
+  const html = HtmlService.createHtmlOutputFromFile('indexHTML').setWidth(500).setHeight(1000);
+  SpreadsheetApp.getUi().showModalDialog(html, 'Оценить заказ');
+}
+
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------Global variables--------------------------------------------------------------
 const timeZone = 'Europe/Monaco';
 const dateFormat = 'dd.MM.yyyy';
+const restsRange = 'A2:RB25';
 // ---------- ----------------------------------------------Sheets variables--------------------------------------------------------------
 
 const restaurantsSheet = getSheet('Рестораны');
 const monitorSheet = getSheet('Монитор');
 const ratingSheet = getSheet('CustomVoteAnswers');
+const debetKreditSheet = getSheet('DebetKredit');
+const monitorRange = 'B3:D13';
 // ----------------------------------------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------async functions---------------------------------------------------------------
 
@@ -92,7 +101,6 @@ function processRatingForm(submitData) {
 }
 // ----------------------------------------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------Utils functions----------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------------------------------------------------
 
 function getSheet(name) {
   const spreadSheet = SpreadsheetApp.getActiveSpreadsheet();
@@ -128,8 +136,76 @@ function getFirstEmptyRow(sheet) {
   return ct + 1;
 }
 
+function getFirstEmptyRowInColumn(sheet, column) {
+  const columnLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if (column < 1) {
+    return null;
+  }
+  let columnLetter = '';
+  let columnNumber = column;
+  while (columnNumber > 0) {
+    columnLetter = columnLetters.charAt((columnNumber - 1) % 26) + columnLetter;
+    columnNumber = Math.floor((columnNumber - 1) / 26);
+  }
+  let lastRow = sheet.getLastRow();
+  if (!lastRow) {
+    lastRow = 1;
+  }
+  const values = sheet.getRange(`${columnLetter}1:${columnLetter}${lastRow}`).getValues();
+  for (let i = 0; i < values.length; i++) {
+    if (!values[i][0]) {
+      return i + 1;
+    }
+  }
+  return values.length + 1;
+}
+
 function sortRows() {
-  const range = restaurantsSheet.getRange('2:25');
+  const range = restaurantsSheet.getRange(restsRange);
   const sortOrder = { column: 2, ascending: false };
   range.sort(sortOrder);
+  SpreadsheetApp.getActive().toast('Restaraunt rows succesfully sorted');
 }
+
+function getOrdersAndValues(sheet, range) {
+  const data = sheet.getRange(range).getValues();
+  const result = {};
+
+  for (let i = 0; i < data.length; i++) {
+    const firstColumn = data[i][0];
+    const thirdColumn = data[i][2];
+    if (thirdColumn !== 0) {
+      result[firstColumn] = thirdColumn;
+    }
+  }
+
+  return result;
+}
+
+function updateKreditTable() {
+  const orderObject = getOrdersAndValues(monitorSheet, monitorRange);
+
+  for (let i = 0; i < Object.keys(orderObject).length; i++) {
+    const textFinder = debetKreditSheet.createTextFinder(Object.keys(orderObject)[i]);
+    const findedName = textFinder.findNext();
+    const findedOrderValue = orderObject[Object.keys(orderObject)[i]];
+
+    if (!findedName) {
+      SpreadsheetApp.getActive().toast('ERROR while processing order values!');
+      return;
+    }
+
+    const kreditColumn = findedName.getColumn() + 1;
+    const kreditRow = getFirstEmptyRowInColumn(debetKreditSheet, kreditColumn);
+    const dateColumn = kreditColumn + 1;
+    const dateRow = kreditRow; // on the same row
+
+    debetKreditSheet.getRange(kreditRow, kreditColumn).setValue(findedOrderValue); // put kredit value
+    debetKreditSheet.getRange(dateRow, dateColumn).setValue(getDate()); // put kredit data value
+  }
+  SpreadsheetApp.getActive().toast('Today orders has been succesfully processed!');
+}
+function debug() {
+  // some code for debug
+}
+// ----------------------------------------------------------------------------------------------------------------------------------------
