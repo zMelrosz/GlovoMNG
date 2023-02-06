@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "rating-form",
   "source": "./client/rating/src/rating.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
@@ -13,6 +14,24 @@
     "clasp": "^1.0.0",
     "eslint": "^8.33.0",
     "parcel": "^2.8.3"
+=======
+  "name": "glovomng",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "clasp push",
+    "depull": "clasp pull"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "eslint": "^8.33.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+>>>>>>> 8d666e9ea2faa0dc3958a08a4e9a00c388e84f07
   },
   "dependencies": {
     "@types/google-apps-script": "^1.0.57"
