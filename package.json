@@ -1,0 +1,20 @@
+{
+  "name": "rating-form",
+  "source": "./client/rating/src/rating.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "dev": "parcel",
+    "rating_build": "parcel build ./client/rating/src/rating.html --dist-dir client/rating/dist",
+    "server_build": "parcel build ./server/src/main.js --dist-dir server/dist"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "clasp": "^1.0.0",
+    "eslint": "^8.33.0",
+    "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.57"
+  }
+}
