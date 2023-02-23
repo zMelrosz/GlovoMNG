@@ -1,0 +1,8 @@
+.buttons-area {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 8px;
+}

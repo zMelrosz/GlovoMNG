@@ -1,0 +1,11 @@
+do check order vote validation +
+debet kredit separately +
+admin panel +
+new getOrders Function +
+new processing orders function +
+history write function +
+refact history beautiful +
+delete info after submit debet credit +
+discord bot connection
+order from webapp
+loading icon

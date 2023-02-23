@@ -1,0 +1,21 @@
+.buttons-area__button {
+  display: flex;
+  text-align: center;
+  width: 85%;
+  background-color: gray;
+  color: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.buttons-area__button:hover {
+    background-color: lightgray;
+}
+
+.buttons-area__button:active {
+    transform: scale(0.95);
+}

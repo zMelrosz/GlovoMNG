@@ -6,6 +6,30 @@ function getSheet(name) {
   
     return sheet;
   }
+
+  function getUsers() {
+    const users =[]; 
+    const values = accountsSheet.getRange(1, 1, accountsSheet.getLastRow()-1, 1).getValues();
+    for (var i = values.length - 1; i >= 0; i--) {
+    users.push(values[i][0]);
+  }
+  users.pop();
+  return users;
+  }
+
+  function textFinder(sheet, text){
+    const finder = sheet.createTextFinder(text);
+    const textRange = finder.findNext();
+  
+    if (textRange !== null) {
+      const userCoords = [];
+      userCoords.push(textRange.getRow());
+      userCoords.push(textRange.getColumn());
+      return userCoords;
+    } else {
+      Browser.msgBox("Text finder error");
+    }
+  }
   
   function searchRow(sheet, column, searchingValue) {
     const row = sheet.getLastRow();
@@ -64,6 +88,10 @@ function getSheet(name) {
     range.sort(sortOrder);
     SpreadsheetApp.getActive().toast('Restaraunt rows succesfully sorted');
   }
+
+  function putValue(value, sheet, row, column) {
+    sheet.getRange(row, column).setValue(value)
+  }
   
   function getOrdersAndValues(sheet, range) {
     const data = sheet.getRange(range).getValues();
@@ -102,4 +130,11 @@ function getSheet(name) {
       debetKreditSheet.getRange(dateRow, dateColumn).setValue(getDate()); // put kredit data value
     }
     SpreadsheetApp.getActive().toast('Today orders has been succesfully processed!');
+  }
+
+  function mergeCells(sheet, cell, numberOfRows) {
+    const row = cell[0];
+    const column = cell[1];
+    const range = sheet.getRange(row, column, numberOfRows, 1);
+    range.mergeVertically();
   }

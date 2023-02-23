@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <base target="_top" />
+  </head>
+  <body class="sidebar">
+    <section class="header">
+      <h1 class="header__text">Glovo MNG web app</h1>
+    </section>
+    <section class="buttons-area">
+      <button class="buttons-area__button buttons-area__button_deposit">
+        Deposit
+      </button>
+      <div
+        class="buttons-area__panel buttons-area__panel_deposit"
+        style="display: none"
+      >
+        <select class="buttons-area__dropdown"><option class="buttons-area__option">test</option></select>
+        <input
+          class="buttons-area__input"
+          type="text"
+          id="amount-input"
+          placeholder="Enter amount"
+        />
+        <button class="buttons-area__submit-button buttons-area__submit-button_debet">Submit</button>
+      </div>
+      <button class="buttons-area__button buttons-area__button_kredit">
+        Kredit
+      </button>
+      <div
+        class="buttons-area__panel buttons-area__panel_kredit"
+        style="display: none"
+      >
+        <select class="buttons-area__dropdown"><option class="buttons-area__option">test</option></select>
+        <input
+          class="buttons-area__input"
+          type="text"
+          id="amount-input"
+          placeholder="Enter amount"
+        />
+        <button class="buttons-area__submit-button buttons-area__submit-button_kredit">Submit</button>
+      </div>
+      <button class="buttons-area__button buttons-area__button_processing">Processing</button>
+      <button class="buttons-area__button buttons-area__button_logOrder">Log order</button>
+    </section>
+  </body>
+
+  <template id="user">
+    <option class="buttons-area__option"></option>
+  </template>
+
+  <script type="module">
+    import "./scripts/showPanel.js";
+    import "./scripts/buildHTML.js";
+    import "./scripts/processDebitCredit.js";
+    import "./scripts/processLogs.js";
+  </script>
+</html>
+
+<style>
+  @import "../src/pages/pages.css";
+</style>

@@ -1,8 +1,8 @@
 {
     "env": {
+        "googleappsscript/googleappsscript": true,
         "browser": true,
-        "es2021": true,
-        "googleappsscript/googleappsscript": true
+        "es2021": true
     },
     "extends": [
         "eslint:recommended",
@@ -16,25 +16,9 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint", 
+        "@typescript-eslint",
         "googleappsscript"
     ],
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
     }
 }

@@ -18,4 +18,9 @@ function doGet() {
     const html = HtmlService.createHtmlOutputFromFile('client/rating/dist/rating').setWidth(500).setHeight(1000);
     SpreadsheetApp.getUi().showModalDialog(html, 'Оценить заказ');
   }
+
+  function openAdminPanel() {
+    const adminHtmlOutput = HtmlService.createHtmlOutputFromFile('client/admin/dist/admin').setTitle('Админ панель');
+    SpreadsheetApp.getUi().showSidebar(adminHtmlOutput);
+  }
   // ---------------------------------------------------------------------------------------------------------------------------------------

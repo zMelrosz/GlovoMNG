@@ -1,0 +1,12 @@
+@import url(../vendor/normalize.css);
+@import url(../styles/header/header.css);
+@import url(../styles/header/__text/header__text.css);
+@import url(../styles/sidebar/sidebar.css);
+@import url(../styles/buttons/buttons-area.css);
+@import url(../styles/buttons/__button/buttons-area__button.css);
+@import url(../styles/buttons/__dropdown/buttons-area__dropdown.css);
+@import url(../styles/buttons/__input/buttons-area__input.css);
+@import url(../styles/buttons/__panel/buttons-area__panel.css);
+@import url(../styles/buttons/__option/buttons-area__option.css);
+@import url(../styles/buttons/submit-button/buttons-area__submit-button.css);
+@import url(../styles/buttons/__button/_processing/buttons-area__button_processing.css);

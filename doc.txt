@@ -1,0 +1,9 @@
+Реализованные функции
+
+SERVER 
+
+accountProcessing
+makeDeposit(processingData) - принимает объект вида (user: xxx, amount: xxx), добавляет в debet sheet с толбец user, количество amount.
+makeCredit (processingData) - -..- только в kredit sheet
+
+

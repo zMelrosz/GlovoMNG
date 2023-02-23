@@ -1,0 +1,12 @@
+.buttons-area__panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .buttons-area__panel > * {
+    display: block;
+    padding: 10px;
+  }
