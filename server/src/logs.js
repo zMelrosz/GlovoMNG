@@ -28,15 +28,24 @@ function copyAndLog(fromSheet, toSheet, range) {
 
 
   function logOrderHistory() {
-    copyAndLog(monitorSheet, historySheet, monitorLogRange);
-    /*function makeLogBeautiful() {
-      const startDateCell = textFinder(historySheet, getDate());
-      const startComissionCell = startDateCell.slice(0, 1).concat(5);
-      const numOfMergeRows = getUsers().length;
-      
-      mergeCells(historySheet, startDateCell, numOfMergeRows);
-      mergeCells(historySheet, startComissionCell, numOfMergeRows+1);
-    } makeLogBeautiful(); */
+    try {
+      copyAndLog(monitorSheet, historySheet, monitorLogRange);
+      SpreadsheetApp.getActive().toast('History logged succesful!');
+    } catch (e) {
+      SpreadsheetApp.getActive().toast('History log error: ' + e);
+    }
+  }
 
-
+  function takeScreenshot(sheet, range) {
+    const rangeValues = sheet.getRange(range).getValues();
+    const numRows = rangeValues.length;
+    const numColumns = rangeValues[0].length;
+    const width = numColumns * 100;
+    const height = numRows * 20;
+    const image = sheet.getSheetValues(1, 1, numRows, numColumns).map(r => r.join('\t')).join('\n');
+    const url = 'https://chart.googleapis.com/chart?cht=gv&chl=' + encodeURIComponent(image) + '&chs=' + width + 'x' + height;
+    const response = UrlFetchApp.fetch(url);
+    const content = response.getContent();
+    const screenshot = Utilities.base64Encode(content);
+    return screenshot;
   }

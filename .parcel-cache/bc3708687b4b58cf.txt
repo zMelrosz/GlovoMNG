@@ -1,8 +1,8 @@
-8199
+8200
 66C:\dev\glovoMng test\node_modules\term-size\vendor\macos\term-size133201724105122894 0
 69C:\dev\glovoMng test\node_modules\svgo\plugins\removeScriptElement.js133201724113902888 0
 71C:\dev\glovoMng test\node_modules\eslint\lib\rules\utils\fix-tracker.js133201724115252887 0
-31C:\dev\glovoMng test\server\src133215572600260497 1
+31C:\dev\glovoMng test\server\src133216351982466263 1
 96C:\dev\glovoMng test\node_modules\htmlnano\docs\versioned_docs\version-2.0.0\010-introduction.md133201724113732889 0
 45C:\dev\glovoMng test\node_modules\flatted\esm133201741704109053 1
 32C:\dev\glovoMng test\.clasp.json133201715123039920 0
@@ -185,7 +185,7 @@
 63C:\dev\glovoMng test\node_modules\@lezer\common\dist\index.d.ts133201724106852898 0
 82C:\dev\glovoMng test\node_modules\source-map-support\browser-source-map-support.js133201724103252892 0
 146C:\dev\glovoMng test\node_modules\@parcel\node-resolver-core\test\fixture\node_modules\side-effects-package-redirect-down\foo\bar\baz\package.json133201724116537716 0
-29C:\dev\glovoMng test\TODO.txt133216226796442901 0
+29C:\dev\glovoMng test\TODO.txt133217132272542225 0
 68C:\dev\glovoMng test\node_modules\@humanwhocodes\module-importer\src133201741423387676 1
 63C:\dev\glovoMng test\node_modules\@eslint\eslintrc\package.json133201724111342892 0
 72C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\promises.js133201724123237702 0
@@ -215,9 +215,17 @@
 98C:\dev\glovoMng test\node_modules\@typescript-eslint\type-utils\_ts3.4\dist\getContextualType.d.ts133201724113242887 0
 75C:\dev\glovoMng test\node_modules\eslint\lib\rules\no-restricted-globals.js133201724119497711 0
 59C:\dev\glovoMng test\node_modules\import-fresh\package.json133201724104172894 0
-52C:\dev\glovoMng test\server\src\accountProcessing.js133216325933478071 0
+52C:\dev\glovoMng test\server\src\accountProcessing.js133216344332941536 0
 53C:\dev\glovoMng test\node_modules\esrecurse\README.md133201724105542894 0
 60C:\dev\glovoMng test\node_modules\yaml\browser\types\omap.js133201724108972892 0
+48C:\dev\glovoMng test\node_modules\balanced-match133201741600738455 1
+84C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\prefers-color-scheme.js133201724123197700 0
+57C:\dev\glovoMng test\node_modules\weak-lru-cache\index.js133201724104502895 0
+73C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\es6-class.js133201724119847705 0
+54C:\dev\glovoMng test\node_modules\ordered-binary\tests133201741747136995 1
+42C:\dev\glovoMng test\server\src\discord.js133217351952707990 0
+95C:\dev\glovoMng test\node_modules\@msgpackr-extract\msgpackr-extract-win32-x64\node.abi108.node133201724105892896 0
+68C:\dev\glovoMng test\node_modules\utility-types\dist\mapped-types.js133201724105492893 0
 66C:\dev\glovoMng test\node_modules\nth-check\lib\esm\compile.js.map133201724108462895 0
 108C:\dev\glovoMng test\node_modules\@typescript-eslint\scope-manager\dist\scope\ClassStaticBlockScope.d.ts.map133201724117697719 0
 57C:\dev\glovoMng test\node_modules\type-check\lib\check.js133201724103512897 0
@@ -246,7 +254,7 @@
 61C:\dev\glovoMng test\node_modules\yaml\dist\legacy-exports.js133201724108162890 0
 53C:\dev\glovoMng test\node_modules\ordered-binary\dist133201741747036983 1
 62C:\dev\glovoMng test\node_modules\node-releases\data\processed133201741744402008 1
-39C:\dev\glovoMng test\server\src\logs.js133216213670857842 0
+39C:\dev\glovoMng test\server\src\logs.js133217208849987028 0
 87C:\dev\glovoMng test\node_modules\@typescript-eslint\scope-manager\dist\lib\es2015.d.ts133201724121097711 0
 44C:\dev\glovoMng test\node_modules\ansi-regex133201741599622669 1
 49C:\dev\glovoMng test\node_modules\posthtml-parser133201741751740910 1
@@ -404,7 +412,6 @@
 85C:\dev\glovoMng test\node_modules\@typescript-eslint\typescript-estree\dist\parser.js133201724110232893 0
 65C:\dev\glovoMng test\node_modules\caniuse-lite\data\regions\UA.js133201724124987709 0
 45C:\dev\glovoMng test\node_modules\array-union133201741600518490 1
-48C:\dev\glovoMng test\node_modules\balanced-match133201741600738455 1
 48C:\dev\glovoMng test\node_modules\node-gyp-build133201741743999781 1
 99C:\dev\glovoMng test\node_modules\@typescript-eslint\typescript-estree\node_modules\semver\internal133201741577258822 1
 65C:\dev\glovoMng test\node_modules\svgo\plugins\convertPathData.js133201724110002885 0
@@ -988,8 +995,8 @@
 54C:\dev\glovoMng test\node_modules\tsutils\util\type.js133201724110902889 0
 82C:\dev\glovoMng test\node_modules\eslint\node_modules\escape-string-regexp\license133201724103082900 0
 71C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\fileapi.js133201724120167703 0
-71C:\dev\glovoMng test\node_modules\uri-js\dist\esnext\regexps-uri.js.map133201724110962894 0
 55C:\dev\glovoMng test\node_modules\has-flag\package.json133201724102952899 0
+71C:\dev\glovoMng test\node_modules\uri-js\dist\esnext\regexps-uri.js.map133201724110962894 0
 98C:\dev\glovoMng test\node_modules\@typescript-eslint\typescript-estree\node_modules\semver\classes133201741576228825 1
 51C:\dev\glovoMng test\node_modules\srcset\index.d.ts133201724105312896 0
 95C:\dev\glovoMng test\node_modules\@types\google-apps-script\google-apps-script.data-studio.d.ts133201724108752889 0
@@ -1227,7 +1234,6 @@
 69C:\dev\glovoMng test\node_modules\fast-glob\out\providers\stream.d.ts133201724113382882 0
 49C:\dev\glovoMng test\node_modules\slash\readme.md133201724105312896 0
 47C:\dev\glovoMng test\node_modules\yaml\index.js133201724107602905 0
-76C:\dev\glovoMng test\node_modules\typescript\lib\lib.webworker.iterable.d.ts133201724124727711 0
 84C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\spellcheck-attribute.js133201724123887705 0
 64C:\dev\glovoMng test\node_modules\type-fest\source\value-of.d.ts133201724112302932 0
 64C:\dev\glovoMng test\node_modules\nth-check\lib\esm\index.js.map133201724109102909 0
@@ -1479,12 +1485,6 @@
 51C:\dev\glovoMng test\node_modules\nth-check\LICENSE133201724102912891 0
 59C:\dev\glovoMng test\node_modules\weak-lru-cache\index.d.ts133201724107302909 0
 70C:\dev\glovoMng test\node_modules\utility-types\dist\mapped-types.d.ts133201724109762890 0
-84C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\prefers-color-scheme.js133201724123197700 0
-57C:\dev\glovoMng test\node_modules\weak-lru-cache\index.js133201724104502895 0
-73C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\es6-class.js133201724119847705 0
-54C:\dev\glovoMng test\node_modules\ordered-binary\tests133201741747136995 1
-95C:\dev\glovoMng test\node_modules\@msgpackr-extract\msgpackr-extract-win32-x64\node.abi108.node133201724105892896 0
-68C:\dev\glovoMng test\node_modules\utility-types\dist\mapped-types.js133201724105492893 0
 49C:\dev\glovoMng test\node_modules\uri-js\dist\es5133201741794930001 1
 54C:\dev\glovoMng test\node_modules\term-size\index.d.ts133201724107492900 0
 85C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\css-container-queries.js133201724117507710 0
@@ -1916,6 +1916,7 @@
 51C:\dev\glovoMng test\node_modules\@parcel\utils\src133201741485823323 1
 67C:\dev\glovoMng test\node_modules\typescript\lib\lib.webworker.d.ts133201724124707705 0
 49C:\dev\glovoMng test\node_modules\prettier\cli.js133201789909092151 0
+76C:\dev\glovoMng test\node_modules\typescript\lib\lib.webworker.iterable.d.ts133201724124727711 0
 58C:\dev\glovoMng test\node_modules\typescript\lib\README.md133201724123227704 0
 101C:\dev\glovoMng test\node_modules\@typescript-eslint\utils\node_modules\semver\functions\satisfies.js133201724112132893 0
 86C:\dev\glovoMng test\node_modules\js-sdsl\dist\esm\container\OtherContainer\Queue.d.ts133201724115652888 0
@@ -1926,9 +1927,6 @@
 51C:\dev\glovoMng test\node_modules\parcel\src\bin.js133201724104502895 0
 102C:\dev\glovoMng test\node_modules\@typescript-eslint\scope-manager\dist\variable\VariableBase.d.ts.map133201724120847704 0
 60C:\dev\glovoMng test\node_modules\typescript\lib\tsserver.js133201724118897720 0
-73C:\dev\glovoMng test\node_modules\json-schema-traverse\spec\.eslintrc.yml133201724106552900 0
-84C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\alternate-stylesheet.js133201724110662889 0
-68C:\dev\glovoMng test\node_modules\requireindex\test\lib\bar\index.js133201756824898333 0
 50C:\dev\glovoMng test\node_modules\slash\index.d.ts133201724103382895 0
 69C:\dev\glovoMng test\node_modules\typescript\lib\tsserverlibrary.d.ts133201724124787707 0
 48C:\dev\glovoMng test\node_modules\slash\index.js133201724104022897 0
@@ -2327,7 +2325,6 @@
 59C:\dev\glovoMng test\node_modules\tslib\CopyrightNotice.txt133201724107862891 0
 100C:\dev\glovoMng test\node_modules\@typescript-eslint\scope-manager\dist\scope\TSModuleScope.d.ts.map133201724120777726 0
 49C:\dev\glovoMng test\node_modules\tslib\README.md133201724106962907 0
-75C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\svg-filters.js133201724124167701 0
 59C:\dev\glovoMng test\node_modules\run-parallel\package.json133201724104022897 0
 51C:\dev\glovoMng test\node_modules\tslib\SECURITY.md133201724107302909 0
 90C:\dev\glovoMng test\node_modules\js-sdsl\dist\esm\container\TreeContainer\OrderedSet.d.ts133201724116527713 0
@@ -2777,6 +2774,9 @@
 64C:\dev\glovoMng test\node_modules\json-schema-traverse\README.md133201724106032984 0
 88C:\dev\glovoMng test\node_modules\@parcel\core\test\fixtures\custom-targets\package.json133201724118277729 0
 67C:\dev\glovoMng test\node_modules\requireindex\test\lib\bar\fing.js133201756824888331 0
+73C:\dev\glovoMng test\node_modules\json-schema-traverse\spec\.eslintrc.yml133201724106552900 0
+84C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\alternate-stylesheet.js133201724110662889 0
+68C:\dev\glovoMng test\node_modules\requireindex\test\lib\bar\index.js133201756824898333 0
 74C:\dev\glovoMng test\node_modules\requireindex\test\lib\bar\fed\ignored.js133201756824908332 0
 87C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\intersectionobserver-v2.js133201724121537704 0
 72C:\dev\glovoMng test\node_modules\requireindex\test\lib\bar\fed\index.js133201756824908332 0
@@ -5716,6 +5716,7 @@
 98C:\dev\glovoMng test\node_modules\@typescript-eslint\eslint-plugin\dist\rules\no-extra-semi.js.map133201724119227705 0
 84C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\subresource-bundling.js133201724124117703 0
 71C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\svg-css.js133201724124157708 0
+75C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\svg-filters.js133201724124167701 0
 73C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\svg-fonts.js133201724124167701 0
 71C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\svg-img.js133201724124617703 0
 72C:\dev\glovoMng test\node_modules\caniuse-lite\data\features\svg-smil.js133201724124627707 0

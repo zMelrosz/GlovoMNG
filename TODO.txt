@@ -6,6 +6,12 @@ new processing orders function +
 history write function +
 refact history beautiful +
 delete info after submit debet credit +
-discord bot connection
+discord bot connection + 
+dicord bot name = Гедонист; +
+openAI connection -
+welcome message +
+fix log notification
+deposit message 
+credit message
 order from webapp
 loading icon
